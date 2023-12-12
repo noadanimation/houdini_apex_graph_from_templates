@@ -33,8 +33,11 @@ The replacements are defined by a dictionary attribute called "context" on your 
 ## Why?
 I've created APEX Graph from Templates as an alternative to create custom APEX graphs, as I wasn't totally comfortable with the autorig components that need to know themselves how to edit the graph they're applied to. In this system each template is closer to the end result, but with some helpful automation and layering so you can still reuse templates and don't have to repeat yourself too much for dense skeletons.
 
+The system is inspired by my time spent coding templates for dynamic websites with Django, you don't have to know how that works but if you have any experience with those then the reasoning behind this might make more sense.
+
 ## Cons?
 - It's Python based so much slower to generate graphs than the autorig components made with APEX, especially for detailed templates with lots of connections.
+- It's still an abstraction from the end result, you might find it more or less comfortable working this way.
 - A very heavy BETA warning, it may break and it might not give useful error messages when it does.
 ### Known issues
 - Nodes within subgraphs need to have unique names. The code won't replace anything inside a subgraph (this is by design - and you can put heavy sections in subgraphs to speed things up a lot, since it just prints the whole subgraph in one without having to calculate the links), but those nodes still confuse the code if they have the same name - sadly this includes the "parms" and "output" node so you have to be careful with subgraphs.
