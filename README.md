@@ -37,6 +37,7 @@ The system is inspired by my time spent coding templates for dynamic websites wi
 
 ## Cons?
 - It's Python based so much slower to generate graphs than the autorig components made with APEX, especially for detailed templates with lots of connections.
+- Only string parameters can be edited by the template, all other values are left as is (so numbers can't vary per point, eg in a TransformObject's localtransform attribute).
 - It's still an abstraction from the end result, you might find it more or less comfortable working this way.
 - A very heavy BETA warning, it may break and it might not give useful error messages when it does.
 ### Known issues
