@@ -1,3 +1,3 @@
 # Examples
 
-Just a hand so far, Tommy's hand, with a simple setup for overall and inidividual finger joint rotations. This shows the basic workflow for using templates, including layering multiple templates.
+The Electra example is a (partial) rig for Electra created using the template system, showing the main concepts.
