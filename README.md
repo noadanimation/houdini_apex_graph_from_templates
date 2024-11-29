@@ -2,7 +2,13 @@
 A template based alternative for creating custom APEX rigs in Houdini
 ### BETA!
 
-## Changes in latest version
+### Changes in v1.1
+- Added "gates" - either make a connection or not, depending on the context keys. Uses similar logic to "\_\_\_SWITCH\_" nulls, but name starts "\_\_\_GATE\_" - for example "\_\_\_GATE\_ISROOT\_\_\_" wires a connection only if the context geo point has the context key "ISROOT" - by default this is set automatically for points with no parent.
+- Added support for tags on context geo, and optionally convert tag arrays automatically into a context key that can be used in SWITCH or GATE nulls. Any key ending with "TAGS" will be treated as a comma separated list of tags. For example "\_\_\_GATE\_TAGS\_\_\_RPROMOTE\_\_\_" will make a connection only if the tag "rpromote" is present on the context geo point, whereas "\_\_\_SWITCH\_TAGS\_\_\_RPROMOTE\_\_\_" will connect the second input port if the tag "rpromote" is present, otherwise it will connect the first port (tags are all converted to lower case for checking).
+- Tweaked built in templates to be more flexible (eg replacing hard coded "base.shp" with context key "\_\_\_BASESHP\_\_\_" to give more control over naming, the defaults are set in the HDA's "Global Context" tab).
+- Updated the Electra example to work with v1.1, added IK/FK blending.
+- Bug fixes.
+### Changes in v1
 - The latest version uses an APEX packed folder as the first input (instead of a raw APEX graph as before). The advantage is Houdini has a built in Python State for these, so you can immediately see and test the results of changes in your templates.
 - Much faster and more robust than before, so should fail less often, and is nicer to iterate with.
 - Includes a method for changing float, vector and matrix values in APEX nodes based on the context geo point attributes (previously only string values could be changed based on the Context attribute).
